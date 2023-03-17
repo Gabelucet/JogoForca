@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\T460\\csharp\\Csharp_balta\\Fundamentos_Cshap\\Exercicios\\jogoForca\\JogoForca.csproj": {}
+    "C:\\Users\\T460\\Desktop\\JogoForca\\JogoForca.csproj": {}
   },
   "projects": {
-    "C:\\Users\\T460\\csharp\\Csharp_balta\\Fundamentos_Cshap\\Exercicios\\jogoForca\\JogoForca.csproj": {
+    "C:\\Users\\T460\\Desktop\\JogoForca\\JogoForca.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\T460\\csharp\\Csharp_balta\\Fundamentos_Cshap\\Exercicios\\jogoForca\\JogoForca.csproj",
+        "projectUniqueName": "C:\\Users\\T460\\Desktop\\JogoForca\\JogoForca.csproj",
         "projectName": "JogoForca",
-        "projectPath": "C:\\Users\\T460\\csharp\\Csharp_balta\\Fundamentos_Cshap\\Exercicios\\jogoForca\\JogoForca.csproj",
+        "projectPath": "C:\\Users\\T460\\Desktop\\JogoForca\\JogoForca.csproj",
         "packagesPath": "C:\\Users\\T460\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\T460\\csharp\\Csharp_balta\\Fundamentos_Cshap\\Exercicios\\jogoForca\\obj\\",
+        "outputPath": "C:\\Users\\T460\\Desktop\\JogoForca\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\T460\\AppData\\Roaming\\NuGet\\NuGet.Config"
