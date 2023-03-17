@@ -41,7 +41,7 @@ namespace JogoForca
         {
             Console.Clear();
             //Aqui ficara as frutas que serão escolhidas para o jogo da forca
-            string[] listaDePalavras = { "BANANA" };
+            string[] listaDePalavras = { "ABACATE", "ABACAXI", "ACEROLA", "AMEIXA", "ARAÇÁ", "AÇAI", "BACABA", "BURITI", "CAJU", "CAJA", "CARAMBOLA", "COCO", "CUPUAÇU", "FIGO", "GOIABA", "GRAVIOLA", "GUABIROBA", "GUARANA", "JABUTICABA", "JACA", "JATOBA", "JENIPAPO", "KIWI", "LARANJA", "LIMAO", "MAMAO", "MANGA", "MANGABA", "MARACUJA", "MELANCIA", "MURICI", "NECTARINA", "PERA", "PESSEGO", "PEQUI", "PINHA", "PITANGA", "PITOMBA", "ROMA", "SAPOTI", "SIRIGUELA", "TANGERINA", "TUCUMA", "UMBU", "UXI", "UVA", "TOMATE"};
 
             //Aqui será sorteadado as frutas e palavras
             Random paralvraAleatoria = new Random();
