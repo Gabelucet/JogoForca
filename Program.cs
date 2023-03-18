@@ -21,6 +21,7 @@ namespace JogoForca
             Console.WriteLine("Todos os temas tem 5 vidas");
             Thread.Sleep(1500);
             Console.WriteLine("Atualmente temos 3 temas");
+            Thread.Sleep(1500);
             Console.WriteLine("Cada tema tem 50 palavras, que são escolhidas de forma aleatória");
             Thread.Sleep(1500);
             Console.WriteLine(
@@ -30,7 +31,7 @@ namespace JogoForca
             Console.Clear();
             Thread.Sleep(1000);
             Console.WriteLine(
-                "Qual será o seu tema?\n1 - Para fruta\n2 - Para Animal \n3 - Para tima\n0 - Para Sair do programa"
+                "Qual será o seu tema?\n1 - Para fruta\n2 - Para Animal \n3 - Para time\n0 - Para Sair do programa"
             );
             int escolha = int.Parse(Console.ReadLine());
 
@@ -95,14 +96,14 @@ namespace JogoForca
         {
             Console.Clear();
 
-            //Aqui ficara as frutas que serão escolhidas para o jogo da forca
+            //Aqui ficara as palavras que serão escolhidas para o jogo da forca
             string[] listaDePalavras =
             {
                 "ABACATE",
                 "ABACAXI",
                 "ACEROLA",
                 "AMEIXA",
-                "ARAÇÁ",
+                "ARAÇA",
                 "AÇAI",
                 "BACABA",
                 "BURITI",
@@ -147,9 +148,9 @@ namespace JogoForca
                 "TOMATE"
             };
 
-            //Aqui será sorteadado as frutas e palavras
+            //Aqui será sorteadado as palavras
             Random paralvraAleatoria = new Random();
-            int localização = paralvraAleatoria.Next(0, listaDePalavras.Length);
+            int localização = paralvraAleatoria.Next(0,0);
             string palavraEscolhida = listaDePalavras[localização];
 
             //Aqui iremos codificar as palavras
