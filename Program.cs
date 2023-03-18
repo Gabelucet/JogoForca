@@ -14,45 +14,50 @@ namespace JogoForca
         {
             //coloquei o Thread.Sleep(2000) para a mensagem aparecer aos poucos, achei que daria um efeito legal
             Console.Clear();
-            Console.WriteLine("SEJA BEM VINDO AO JOGO DA FORCA DO GABE");Thread.Sleep(1000);
-            Console.WriteLine("Vamos lá conhecer as regras: ");Thread.Sleep(1500);
-            Console.WriteLine("Todos os temas tem 5 vidas");Thread.Sleep(1500);
+            Console.WriteLine("SEJA BEM VINDO AO JOGO DA FORCA DO GABE");
+            Thread.Sleep(1000);
+            Console.WriteLine("Vamos lá conhecer as regras: ");
+            Thread.Sleep(1500);
+            Console.WriteLine("Todos os temas tem 5 vidas");
+            Thread.Sleep(1500);
             Console.WriteLine("Atualmente temos 3 temas");
-            Console.WriteLine("Cada tema tem 50 palavras, que são escolhidas de forma aleatória"); Thread.Sleep(1500);
-            Console.WriteLine("Está pronto?\n\n            ... Pressione Enter para continuar ...    ");
+            Console.WriteLine("Cada tema tem 50 palavras, que são escolhidas de forma aleatória");
+            Thread.Sleep(1500);
+            Console.WriteLine(
+                "Está pronto?\n\n            ... Pressione Enter para continuar ...    "
+            );
             Console.ReadKey();
             Console.Clear();
             Thread.Sleep(1000);
-            Console.WriteLine("Qual será o seu tema?\n1 - Para fruta\n2 - Para Animal \n3 - Para tima\n0 - Para Sair do programa");
+            Console.WriteLine(
+                "Qual será o seu tema?\n1 - Para fruta\n2 - Para Animal \n3 - Para tima\n0 - Para Sair do programa"
+            );
             int escolha = int.Parse(Console.ReadLine());
 
             switch (escolha)
             {
-                case 1: Fruta(); break;
-                case 2: Animal(); break;
-                case 3: Time(); break;
-                case 0: System.Environment.Exit(0); break;
-                default:Console.WriteLine("Opção invalida  ...  Voltando para o inicio  ..."); Thread.Sleep(1500);inicio();break;
+                case 1:
+                    Fruta();
+                    break;
+                case 2:
+                    Animal();
+                    break;
+                case 3:
+                    Time();
+                    break;
+                case 0:
+                    System.Environment.Exit(0);
+                    break;
+                default:
+                    Console.WriteLine("Opção invalida  ...  Voltando para o inicio  ...");
+                    Thread.Sleep(1500);
+                    inicio();
+                    break;
             }
-
         }
 
-        static void Fruta()
+        static void Validacao(string palavraEscolhida, string palavraCodificada)
         {
-            Console.Clear();
-            //Aqui ficara as frutas que serão escolhidas para o jogo da forca
-            string[] listaDePalavras = { "ABACATE", "ABACAXI", "ACEROLA", "AMEIXA", "ARAÇÁ", "AÇAI", "BACABA", "BURITI", "CAJU", "CAJA", "CARAMBOLA", "COCO", "CUPUAÇU", "FIGO", "GOIABA", "GRAVIOLA", "GUABIROBA", "GUARANA", "JABUTICABA", "JACA", "JATOBA", "JENIPAPO", "KIWI", "LARANJA", "LIMAO", "MAMAO", "MANGA", "MANGABA", "MARACUJA", "MELANCIA", "MURICI", "NECTARINA", "PERA", "PESSEGO", "PEQUI", "PINHA", "PITANGA", "PITOMBA", "ROMA", "SAPOTI", "SIRIGUELA", "TANGERINA", "TUCUMA", "UMBU", "UXI", "UVA", "TOMATE"};
-
-            //Aqui será sorteadado as frutas e palavras
-            Random paralvraAleatoria = new Random();
-            int localização = paralvraAleatoria.Next(0, listaDePalavras.Length);
-            string palavraEscolhida = listaDePalavras[localização];
-
-            //Aqui iremos codificar as palavras
-            string codificador = "".PadLeft(palavraEscolhida.Length, '*');
-            string frutaCodificada = palavraEscolhida.Replace(palavraEscolhida, codificador);
-
-            //Aqui vamos fazer as validações
             int vida = 5;
             while (vida >= 1)
             {
@@ -66,14 +71,14 @@ namespace JogoForca
                     int posicao = palavraEscolhida.IndexOf(letraMaiscula);
                     while (posicao >= 0)
                     {
-                        frutaCodificada = frutaCodificada
+                        palavraCodificada = palavraCodificada
                             .Remove(posicao, 1)
                             .Insert(posicao, letraMaiscula);
                         posicao = palavraEscolhida.IndexOf(letraMaiscula, posicao + 1);
                     }
 
                     Console.WriteLine("\nParabéns!!! Temos a letra " + letraMaiscula);
-                    Console.WriteLine("\n" + frutaCodificada);
+                    Console.WriteLine("\n" + palavraCodificada);
                 }
                 else
                 {
@@ -86,8 +91,78 @@ namespace JogoForca
             }
         }
 
-        static void Time(){}
-        static void Animal(){}
+        static void Fruta()
+        {
+            Console.Clear();
+
+            //Aqui ficara as frutas que serão escolhidas para o jogo da forca
+            string[] listaDePalavras =
+            {
+                "ABACATE",
+                "ABACAXI",
+                "ACEROLA",
+                "AMEIXA",
+                "ARAÇÁ",
+                "AÇAI",
+                "BACABA",
+                "BURITI",
+                "CAJU",
+                "CAJA",
+                "CARAMBOLA",
+                "COCO",
+                "CUPUAÇU",
+                "FIGO",
+                "GOIABA",
+                "GRAVIOLA",
+                "GUABIROBA",
+                "GUARANA",
+                "JABUTICABA",
+                "JACA",
+                "JATOBA",
+                "JENIPAPO",
+                "KIWI",
+                "LARANJA",
+                "LIMAO",
+                "MAMAO",
+                "MANGA",
+                "MANGABA",
+                "MARACUJA",
+                "MELANCIA",
+                "MURICI",
+                "NECTARINA",
+                "PERA",
+                "PESSEGO",
+                "PEQUI",
+                "PINHA",
+                "PITANGA",
+                "PITOMBA",
+                "ROMA",
+                "SAPOTI",
+                "SIRIGUELA",
+                "TANGERINA",
+                "TUCUMA",
+                "UMBU",
+                "UXI",
+                "UVA",
+                "TOMATE"
+            };
+
+            //Aqui será sorteadado as frutas e palavras
+            Random paralvraAleatoria = new Random();
+            int localização = paralvraAleatoria.Next(0, listaDePalavras.Length);
+            string palavraEscolhida = listaDePalavras[localização];
+
+            //Aqui iremos codificar as palavras
+            string codificador = "".PadLeft(palavraEscolhida.Length, '*');
+            string palavraCodificada = palavraEscolhida.Replace(palavraEscolhida, codificador);
+
+            //Aqui vamos fazer as validações
+            Validacao(palavraEscolhida, palavraCodificada);
+        }
+
+        static void Time() { }
+
+        static void Animal() { }
 
         static void desenho(int vida)
         {
