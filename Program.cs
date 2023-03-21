@@ -9,7 +9,6 @@ namespace JogoForca
         {
             inicio();
         }
-
         static void inicio()
         {
             //coloquei o Thread.Sleep(2000) para a mensagem aparecer aos poucos, achei que daria um efeito legal
@@ -30,7 +29,6 @@ namespace JogoForca
             Console.ReadKey();
             MenuSelecao();
         }
-
         static void MenuSelecao(){
             Console.Clear();
             Thread.Sleep(1000);
@@ -61,7 +59,7 @@ namespace JogoForca
                     break;
             }
         }
-
+//Aqui está todo o jogo da forca, as validações para fazer o desenho da forca, contar as vidas e diminuir a vida
         static void Validacao(string palavraEscolhida, string palavraCodificada)
         {
             int vida = 6;
@@ -123,7 +121,7 @@ namespace JogoForca
                 }
             }
         }
-
+// Aqui está todas palavras do tema fruta e onde é selecionado e codificado as palavras
         static void Fruta()
         {
             Console.Clear();
@@ -192,7 +190,7 @@ namespace JogoForca
             //Aqui vamos fazer as validações
             Validacao(palavraEscolhida, palavraCodificada);
         }
-
+// Aqui está todas palavras do tema Time e onde é selecionado e codificado as palavras
         static void Time()
         {
             Console.Clear();
@@ -256,7 +254,7 @@ namespace JogoForca
             //Aqui vamos fazer as validações
             Validacao(palavraEscolhida, palavraCodificada);
         }
-
+// Aqui está todas palavras do tema Animal e onde é selecionado e codificado as palavras
         static void Animal()
         {
             Console.Clear();
@@ -319,7 +317,7 @@ namespace JogoForca
             //Aqui vamos fazer as validações
             Validacao(palavraEscolhida, palavraCodificada);
         }
-
+//Aqui está o desenho da forca 
         static void Desenho(int vida)
         {
             if (vida == 6)
@@ -388,7 +386,7 @@ namespace JogoForca
                 Console.WriteLine("|___");
             }
         }
-
+//Aqui está a finalização do jogo, para saber se o user vai continuar jogando ou não
         static void continuarJogando()
         {
             Console.Clear();
