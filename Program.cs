@@ -1,4 +1,5 @@
-﻿/*JOGO DA FORCA !!!!*/
+﻿using Internal;
+/*JOGO DA FORCA !!!!*/
 using System;
 
 namespace JogoForca
@@ -7,7 +8,7 @@ namespace JogoForca
     {
         static void Main(string[] args)
         {
-            inicio();
+            MenuSelecao();
         }
         static void inicio()
         {
@@ -23,7 +24,7 @@ namespace JogoForca
             Thread.Sleep(1500);
             Console.WriteLine("Cada tema tem 50 palavras, que são escolhidas de forma aleatória");
             Thread.Sleep(1500);
-            Console.WriteLine(
+            Console.WriteLine(  
                 "Está pronto?\n\n            ... Pressione Enter para continuar ...    "
             );
             Console.ReadKey();
@@ -63,14 +64,19 @@ namespace JogoForca
         static void Validacao(string palavraEscolhida, string palavraCodificada)
         {
             int vida = 6;
+            string letrasInformadas = "";
             while (vida >= 1)
-            {
+            {   string letraMaiscula ="";
                 Console.WriteLine("A palavra escolhida tem " + palavraEscolhida.Length + " letras");
+                Console.WriteLine("\nAs seguintes letras já foram informadas: \n" + letrasInformadas);
                 Desenho(vida);
                 Console.WriteLine("\n          " + palavraCodificada);
                 Console.Write("\nMe informe uma letra: ");
                 string letra = Console.ReadLine();
-                String letraMaiscula = letra.ToUpper();
+                letraMaiscula = letra.ToUpper();
+                letrasInformadas = letrasInformadas + " " + letraMaiscula + " ";
+
+                
 
                 if (palavraEscolhida.Contains(letraMaiscula))
                 {
@@ -390,6 +396,7 @@ namespace JogoForca
         static void continuarJogando()
         {
             Console.Clear();
+            Console.WriteLine("Deseja continuar jogando? ");
             Console.WriteLine("1 - PARA SIM\n2 - PARA NÃO");
             Console.Write("\nSua resposta: ");
             int continuarJogando = int.Parse(Console.ReadLine());
