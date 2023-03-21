@@ -7,7 +7,7 @@ namespace JogoForca
     {
         static void Main(string[] args)
         {
-            Fruta();
+            inicio();
         }
 
         static void inicio()
@@ -28,11 +28,16 @@ namespace JogoForca
                 "Está pronto?\n\n            ... Pressione Enter para continuar ...    "
             );
             Console.ReadKey();
+            MenuSelecao();
+        }
+
+        static void MenuSelecao(){
             Console.Clear();
             Thread.Sleep(1000);
             Console.WriteLine(
                 "Qual será o seu tema?\n1 - Para fruta\n2 - Para Animal \n3 - Para time\n0 - Para Sair do programa"
             );
+            Console.Write("\nSua resposta: ");
             int escolha = int.Parse(Console.ReadLine());
 
             switch (escolha)
@@ -94,8 +99,9 @@ namespace JogoForca
                 if (palavraCodificada.IndexOf("_") == -1)
                 {
                     Console.WriteLine("Parabéns você venceu");
+                    Console.Write("\nA palavra era: " + palavraEscolhida);
+                    Thread.Sleep(3000);
                     continuarJogando();
-                    
                 }
 
                 if (vida == 0)
@@ -109,7 +115,9 @@ namespace JogoForca
                     Console.WriteLine("|");
                     Console.WriteLine("|___");
 
-                    Thread.Sleep(2000);
+                    Console.Write("\nA palavra era: " + palavraEscolhida);
+
+                    Thread.Sleep(3000);
                     Console.Clear();
                     continuarJogando();
                 }
@@ -174,7 +182,7 @@ namespace JogoForca
 
             //Aqui será sorteadado as palavras
             Random paralvraAleatoria = new Random();
-            int localização = paralvraAleatoria.Next(0, 0);
+            int localização = paralvraAleatoria.Next(0, listaDePalavras.Length);
             string palavraEscolhida = listaDePalavras[localização];
 
             //Aqui iremos codificar as palavras
@@ -185,12 +193,146 @@ namespace JogoForca
             Validacao(palavraEscolhida, palavraCodificada);
         }
 
-        static void Time() { }
+        static void Time()
+        {
+            Console.Clear();
 
-        static void Animal() { }
+            //Aqui ficara as palavras que serão escolhidas para o jogo da forca
+            string[] listaDePalavras =
+            {
+                "BARCELONA",
+                "LIVERPOOL",
+                "CHELSEA",
+                "BAYERN MUNICH",
+                "JUVENTUS",
+                "MILAN",
+                "BENFICA",
+                "SPORTING",
+                "PORTO",
+                "CELTIC",
+                "RANGERS",
+                "ARSENAL",
+                "TOTTENHAM",
+                "SEVILLA",
+                "VALENCIA",
+                "PSV",
+                "AJAX",
+                "FLAMENGO",
+                "CORINTHIANS",
+                "SANTOS",
+                "PALMEIRAS",
+                "GREMIO",
+                "INTERNACIONAL",
+                "CRUZEIRO",
+                "FLUMINENSE",
+                "BOTAFOGO",
+                "CHAPECOENSE",
+                "GOIAS",
+                "CEARA",
+                "FORTALEZA",
+                "SANTA CRUZ",
+                "SPORT",
+                "NAUTICO",
+                "ABC",
+                "PAYSANDU",
+                "REMO",
+                "JUVENTUDE",
+                "PSG",
+                "LAZIO",
+                "GUARANI",
+                "CRICIUMA",
+                "NACIONAL"
+            };
+
+            //Aqui será sorteadado as palavras
+            Random paralvraAleatoria = new Random();
+            int localização = paralvraAleatoria.Next(0, listaDePalavras.Length);
+            string palavraEscolhida = listaDePalavras[localização];
+
+            //Aqui iremos codificar as palavras
+            string codificador = "".PadLeft(palavraEscolhida.Length, '_');
+            string palavraCodificada = palavraEscolhida.Replace(palavraEscolhida, codificador);
+
+            //Aqui vamos fazer as validações
+            Validacao(palavraEscolhida, palavraCodificada);
+        }
+
+        static void Animal()
+        {
+            Console.Clear();
+
+            //Aqui ficara as palavras que serão escolhidas para o jogo da forca
+            string[] listaDePalavras =
+            {
+                "ABELHA",
+                "ARANHA",
+                "AGUIA",
+                "BALEIA",
+                "CARCARA",
+                "CANGURU",
+                "CHITA",
+                "COALA",
+                "COBRA",
+                "CONDOR",
+                "CROCODILO",
+                "ELEFANTE",
+                "FALCAO",
+                "FORMIGA",
+                "FOCA",
+                "GAVIAO",
+                "GIRRAFA",
+                "GORILA",
+                "HIPOPOTAMO",
+                "JACARE",
+                "JAGUATIRICA",
+                "LEAO",
+                "LEOPARDO",
+                "LOBO",
+                "MACACO",
+                "MEDUSA",
+                "MORSA",
+                "ONÇA",
+                "ORCA",
+                "PANDA",
+                "PEIXE",
+                "PINGUIM",
+                "POLVO",
+                "RAPTOR",
+                "RINOCERONTE",
+                "SURICATE",
+                "TARTARUGA",
+                "TIGRE",
+                "TUBARÃO",
+                "URSO",
+                "ZEBRA"
+            };
+
+            //Aqui será sorteadado as palavras
+            Random paralvraAleatoria = new Random();
+            int localização = paralvraAleatoria.Next(0, listaDePalavras.Length);
+            string palavraEscolhida = listaDePalavras[localização];
+
+            //Aqui iremos codificar as palavras
+            string codificador = "".PadLeft(palavraEscolhida.Length, '_');
+            string palavraCodificada = palavraEscolhida.Replace(palavraEscolhida, codificador);
+
+            //Aqui vamos fazer as validações
+            Validacao(palavraEscolhida, palavraCodificada);
+        }
 
         static void Desenho(int vida)
         {
+            if (vida == 6)
+            {
+                Console.WriteLine(" _____");
+                Console.WriteLine("|     |");
+                Console.WriteLine("|     ");
+                Console.WriteLine("|    ");
+                Console.WriteLine("|    ");
+                Console.WriteLine("|");
+                Console.WriteLine("|___");
+            }
+
             if (vida == 5)
             {
                 Console.WriteLine(" _____");
@@ -247,31 +389,33 @@ namespace JogoForca
             }
         }
 
-        static void continuarJogando(){
-            Console.WriteLine("\nDeseja continuar jogando?");
-                    Console.WriteLine("1 - PARA SIM\n2 - PARA NÃO");
-                    int continuarJogando = int.Parse(Console.ReadLine());
+        static void continuarJogando()
+        {
+            Console.Clear();
+            Console.WriteLine("1 - PARA SIM\n2 - PARA NÃO");
+            Console.Write("\nSua resposta: ");
+            int continuarJogando = int.Parse(Console.ReadLine());
 
-                    switch (continuarJogando)
-                    {
-                        case 1:
-                            Console.WriteLine("Voltando para o inicio");
-                            Thread.Sleep(1000);
-                            inicio();
-                            break;
-                        case 2:
-                            Console.WriteLine("Saindo da aplicação");
-                            Thread.Sleep(1000);
-                            Console.Clear();
-                            System.Environment.Exit(2);
-                            break;
-                        default:
-                            Console.WriteLine(". . .Opção invalida. . .");
-                            Console.WriteLine("Voltando para o menu");
-                            Thread.Sleep(1000);
-                            inicio();
-                            break;
-                    }
+            switch (continuarJogando)
+            {
+                case 1:
+                    Console.WriteLine("Voltando para o menu de seleção");
+                    Thread.Sleep(1000);
+                    MenuSelecao();
+                    break;
+                case 2:
+                    Console.WriteLine("Saindo da aplicação");
+                    Thread.Sleep(1000);
+                    Console.Clear();
+                    System.Environment.Exit(2);
+                    break;
+                default:
+                    Console.WriteLine(". . .Opção invalida. . .");
+                    Console.WriteLine("Voltando para o menu de seleção");
+                    Thread.Sleep(1000);
+                    MenuSelecao();
+                    break;
+            }
         }
     }
 }
