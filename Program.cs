@@ -89,15 +89,11 @@ namespace JogoForca
                     vida--;
                     Console.WriteLine("\nNão temos a letra " + letraMaiscula + ", nessa palavra ");
                     Console.WriteLine("\n" + palavraCodificada);
-                    
+
                     desenho(vida);
                     Thread.Sleep(1000);
                     Console.Clear();
                 }
-
-                string letraInformada = letraMaiscula;
-
-                Console.WriteLine(letraInformada);
             }
         }
 
