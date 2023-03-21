@@ -62,8 +62,10 @@ namespace JogoForca
             int vida = 6;
             while (vida >= 1)
             {
+                
+                Console.WriteLine("A palavra escolhida tem " + palavraEscolhida.Length + " letras");
                 Console.WriteLine("\n" + palavraCodificada);
-                Console.Write("Me informe uma letra: ");
+                Console.Write("\nMe informe uma letra: ");
                 string letra = Console.ReadLine();
                 String letraMaiscula = letra.ToUpper();
 
@@ -159,7 +161,7 @@ namespace JogoForca
             string palavraEscolhida = listaDePalavras[localização];
 
             //Aqui iremos codificar as palavras
-            string codificador = "".PadLeft(palavraEscolhida.Length, '*');
+            string codificador = "".PadLeft(palavraEscolhida.Length, '_');
             string palavraCodificada = palavraEscolhida.Replace(palavraEscolhida, codificador);
 
             //Aqui vamos fazer as validações
