@@ -59,10 +59,10 @@ namespace JogoForca
 
         static void Validacao(string palavraEscolhida, string palavraCodificada)
         {
-            int vida = 5;
+            int vida = 6;
             while (vida >= 1)
             {
-                //Aqui iremos perguntar a letra para o user
+                Console.WriteLine("\n" + palavraCodificada);
                 Console.Write("Me informe uma letra: ");
                 string letra = Console.ReadLine();
                 String letraMaiscula = letra.ToUpper();
@@ -80,15 +80,24 @@ namespace JogoForca
 
                     Console.WriteLine("\nParabéns!!! Temos a letra " + letraMaiscula);
                     Console.WriteLine("\n" + palavraCodificada);
+                    Thread.Sleep(2000);
+                    Console.Clear();
+                    
                 }
                 else
                 {
                     vida--;
                     Console.WriteLine("\nNão temos a letra " + letraMaiscula + ", nessa palavra ");
-                    Console.WriteLine("Sua vida é " + vida);
-
+                    Console.WriteLine("\n" + palavraCodificada);
+                    
                     desenho(vida);
+                    Thread.Sleep(1000);
+                    Console.Clear();
                 }
+
+                string letraInformada = letraMaiscula;
+
+                Console.WriteLine(letraInformada);
             }
         }
 
@@ -150,7 +159,7 @@ namespace JogoForca
 
             //Aqui será sorteadado as palavras
             Random paralvraAleatoria = new Random();
-            int localização = paralvraAleatoria.Next(0,0);
+            int localização = paralvraAleatoria.Next(0, 0);
             string palavraEscolhida = listaDePalavras[localização];
 
             //Aqui iremos codificar as palavras
@@ -167,12 +176,23 @@ namespace JogoForca
 
         static void desenho(int vida)
         {
-            if (vida == 4)
+            if (vida == 5)
             {
                 Console.WriteLine(" _____");
                 Console.WriteLine("|     |");
                 Console.WriteLine("|     O");
                 Console.WriteLine("|    ");
+                Console.WriteLine("|    ");
+                Console.WriteLine("|");
+                Console.WriteLine("|___");
+            }
+
+            if (vida == 4)
+            {
+                Console.WriteLine(" _____");
+                Console.WriteLine("|     |");
+                Console.WriteLine("|     O");
+                Console.WriteLine("|     |");
                 Console.WriteLine("|    ");
                 Console.WriteLine("|");
                 Console.WriteLine("|___");
@@ -195,7 +215,7 @@ namespace JogoForca
                 Console.WriteLine("|     |");
                 Console.WriteLine("|     O");
                 Console.WriteLine("|    /|\\");
-                Console.WriteLine("|    ");
+                Console.WriteLine("|      ");
                 Console.WriteLine("|");
                 Console.WriteLine("|___");
             }
@@ -210,7 +230,6 @@ namespace JogoForca
                 Console.WriteLine("|");
                 Console.WriteLine("|___");
             }
-
             if (vida == 0)
             {
                 Console.WriteLine("\nGAME OVER!!!!");
