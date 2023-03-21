@@ -62,9 +62,9 @@ namespace JogoForca
             int vida = 6;
             while (vida >= 1)
             {
-                
                 Console.WriteLine("A palavra escolhida tem " + palavraEscolhida.Length + " letras");
-                Console.WriteLine("\n" + palavraCodificada);
+                Desenho(vida);
+                Console.WriteLine("\n          " + palavraCodificada);
                 Console.Write("\nMe informe uma letra: ");
                 string letra = Console.ReadLine();
                 String letraMaiscula = letra.ToUpper();
@@ -81,20 +81,37 @@ namespace JogoForca
                     }
 
                     Console.WriteLine("\nParabéns!!! Temos a letra " + letraMaiscula);
-                    Console.WriteLine("\n" + palavraCodificada);
-                    Thread.Sleep(2000);
+                    Thread.Sleep(1500);
                     Console.Clear();
-                    
                 }
                 else
                 {
                     vida--;
                     Console.WriteLine("\nNão temos a letra " + letraMaiscula + ", nessa palavra ");
-                    Console.WriteLine("\n" + palavraCodificada);
-
-                    desenho(vida);
-                    Thread.Sleep(1000);
+                    Thread.Sleep(1500);
                     Console.Clear();
+                }
+                if (palavraCodificada.IndexOf("_") == -1)
+                {
+                    Console.WriteLine("Parabéns você venceu");
+                    continuarJogando();
+                    
+                }
+
+                if (vida == 0)
+                {
+                    Console.WriteLine("\nGAME OVER!!!!");
+                    Console.WriteLine(" _____");
+                    Console.WriteLine("|     |");
+                    Console.WriteLine("|     O");
+                    Console.WriteLine("|    /|\\");
+                    Console.WriteLine("|    / \\");
+                    Console.WriteLine("|");
+                    Console.WriteLine("|___");
+
+                    Thread.Sleep(2000);
+                    Console.Clear();
+                    continuarJogando();
                 }
             }
         }
@@ -172,7 +189,7 @@ namespace JogoForca
 
         static void Animal() { }
 
-        static void desenho(int vida)
+        static void Desenho(int vida)
         {
             if (vida == 5)
             {
@@ -228,17 +245,33 @@ namespace JogoForca
                 Console.WriteLine("|");
                 Console.WriteLine("|___");
             }
-            if (vida == 0)
-            {
-                Console.WriteLine("\nGAME OVER!!!!");
-                Console.WriteLine(" _____");
-                Console.WriteLine("|     |");
-                Console.WriteLine("|     O");
-                Console.WriteLine("|    /|\\");
-                Console.WriteLine("|    / \\");
-                Console.WriteLine("|");
-                Console.WriteLine("|___");
-            }
+        }
+
+        static void continuarJogando(){
+            Console.WriteLine("\nDeseja continuar jogando?");
+                    Console.WriteLine("1 - PARA SIM\n2 - PARA NÃO");
+                    int continuarJogando = int.Parse(Console.ReadLine());
+
+                    switch (continuarJogando)
+                    {
+                        case 1:
+                            Console.WriteLine("Voltando para o inicio");
+                            Thread.Sleep(1000);
+                            inicio();
+                            break;
+                        case 2:
+                            Console.WriteLine("Saindo da aplicação");
+                            Thread.Sleep(1000);
+                            Console.Clear();
+                            System.Environment.Exit(2);
+                            break;
+                        default:
+                            Console.WriteLine(". . .Opção invalida. . .");
+                            Console.WriteLine("Voltando para o menu");
+                            Thread.Sleep(1000);
+                            inicio();
+                            break;
+                    }
         }
     }
 }
