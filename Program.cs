@@ -9,6 +9,7 @@ namespace JogoForca
         {
             MenuSelecao();
         }
+
         static void inicio()
         {
             //coloquei o Thread.Sleep(2000) para a mensagem aparecer aos poucos, achei que daria um efeito legal
@@ -23,13 +24,15 @@ namespace JogoForca
             Thread.Sleep(1500);
             Console.WriteLine("Cada tema tem 50 palavras, que são escolhidas de forma aleatória");
             Thread.Sleep(1500);
-            Console.WriteLine(  
+            Console.WriteLine(
                 "Está pronto?\n\n            ... Pressione Enter para continuar ...    "
             );
             Console.ReadKey();
             MenuSelecao();
         }
-        static void MenuSelecao(){
+
+        static void MenuSelecao()
+        {
             Console.Clear();
             Thread.Sleep(1000);
             Console.WriteLine(
@@ -41,13 +44,152 @@ namespace JogoForca
             switch (escolha)
             {
                 case 1:
-                    Fruta();
+                    string[] listaDeFrutas =
+                    {
+                        "ABACATE",
+                        "ABACAXI",
+                        "ACEROLA",
+                        "AMEIXA",
+                        "ARAÇA",
+                        "AÇAI",
+                        "BACABA",
+                        "BURITI",
+                        "CAJU",
+                        "CAJA",
+                        "CARAMBOLA",
+                        "COCO",
+                        "CUPUAÇU",
+                        "FIGO",
+                        "GOIABA",
+                        "GRAVIOLA",
+                        "GUABIROBA",
+                        "GUARANA",
+                        "JABUTICABA",
+                        "JACA",
+                        "JATOBA",
+                        "JENIPAPO",
+                        "KIWI",
+                        "LARANJA",
+                        "LIMAO",
+                        "MAMAO",
+                        "MANGA",
+                        "MANGABA",
+                        "MARACUJA",
+                        "MELANCIA",
+                        "MURICI",
+                        "NECTARINA",
+                        "PERA",
+                        "PESSEGO",
+                        "PEQUI",
+                        "PINHA",
+                        "PITANGA",
+                        "PITOMBA",
+                        "ROMA",
+                        "SAPOTI",
+                        "SIRIGUELA",
+                        "TANGERINA",
+                        "TUCUMA",
+                        "UMBU",
+                        "UXI",
+                        "UVA",
+                        "TOMATE"
+                    };
+                    CodificarDasPalavras(listaDeFrutas);
                     break;
                 case 2:
-                    Animal();
+                    string[] listaDeAnimais =
+                    {
+                        "ABELHA",
+                        "ARANHA",
+                        "AGUIA",
+                        "BALEIA",
+                        "CARCARA",
+                        "CANGURU",
+                        "CHITA",
+                        "COALA",
+                        "COBRA",
+                        "CONDOR",
+                        "CROCODILO",
+                        "ELEFANTE",
+                        "FALCAO",
+                        "FORMIGA",
+                        "FOCA",
+                        "GAVIAO",
+                        "GIRRAFA",
+                        "GORILA",
+                        "HIPOPOTAMO",
+                        "JACARE",
+                        "JAGUATIRICA",
+                        "LEAO",
+                        "LEOPARDO",
+                        "LOBO",
+                        "MACACO",
+                        "MEDUSA",
+                        "MORSA",
+                        "ONÇA",
+                        "ORCA",
+                        "PANDA",
+                        "PEIXE",
+                        "PINGUIM",
+                        "POLVO",
+                        "RAPTOR",
+                        "RINOCERONTE",
+                        "SURICATE",
+                        "TARTARUGA",
+                        "TIGRE",
+                        "TUBARÃO",
+                        "URSO",
+                        "ZEBRA"
+                    };
+                    CodificarDasPalavras(listaDeAnimais);
                     break;
                 case 3:
-                    Time();
+                    string[] listaDeTimes =
+                    {
+                        "BARCELONA",
+                        "LIVERPOOL",
+                        "CHELSEA",
+                        "BAYERN MUNICH",
+                        "JUVENTUS",
+                        "MILAN",
+                        "BENFICA",
+                        "SPORTING",
+                        "PORTO",
+                        "CELTIC",
+                        "RANGERS",
+                        "ARSENAL",
+                        "TOTTENHAM",
+                        "SEVILLA",
+                        "VALENCIA",
+                        "PSV",
+                        "AJAX",
+                        "FLAMENGO",
+                        "CORINTHIANS",
+                        "SANTOS",
+                        "PALMEIRAS",
+                        "GREMIO",
+                        "INTERNACIONAL",
+                        "CRUZEIRO",
+                        "FLUMINENSE",
+                        "BOTAFOGO",
+                        "CHAPECOENSE",
+                        "GOIAS",
+                        "CEARA",
+                        "FORTALEZA",
+                        "SANTA CRUZ",
+                        "SPORT",
+                        "NAUTICO",
+                        "ABC",
+                        "PAYSANDU",
+                        "REMO",
+                        "JUVENTUDE",
+                        "PSG",
+                        "LAZIO",
+                        "GUARANI",
+                        "CRICIUMA",
+                        "NACIONAL"
+                    };
+                    CodificarDasPalavras(listaDeTimes);
                     break;
                 case 0:
                     System.Environment.Exit(0);
@@ -59,30 +201,36 @@ namespace JogoForca
                     break;
             }
         }
-//Aqui está todo o jogo da forca, as validações para fazer o desenho da forca, contar as vidas e diminuir a vida
+
+        //Aqui está todo o jogo da forca, as validações para fazer o desenho da forca, contar as vidas e diminuir a vida
         static void Validacao(string palavraEscolhida, string palavraCodificada)
         {
             int vida = 6;
             string letrasInformadas = "";
             while (vida >= 1)
-            {   string letraMaiscula ="";
+            {
+                string letraMaiscula = "";
                 Console.WriteLine("A palavra escolhida tem " + palavraEscolhida.Length + " letras");
-                Console.WriteLine("\nAs seguintes letras já foram informadas: \n" + letrasInformadas);
+                Console.WriteLine(
+                    "\nAs seguintes letras já foram informadas: \n" + letrasInformadas
+                );
                 Desenho(vida);
                 Console.WriteLine("\n          " + palavraCodificada);
                 Console.Write("\nMe informe uma letra: ");
                 string letra = Console.ReadLine();
                 letraMaiscula = letra.ToUpper();
-               
-                //Verificação se a letra já foi informada
-                 if (letrasInformadas.Contains(letraMaiscula))
+
+                //Verificação se a letra já foi informad
+                if (letrasInformadas.Contains(letraMaiscula))
                 {
-                    Console.WriteLine("\n----------ATENÇÃO!! A letra já foi informada---------------");
+                    Console.WriteLine(
+                        "\n----------ATENÇÃO!! A letra já foi informada---------------"
+                    );
                     Thread.Sleep(1500);
                     Console.Clear();
-                    continue;            
+                    continue;
                 }
-                 letrasInformadas = letrasInformadas + " " + letraMaiscula + " ";
+                letrasInformadas = letrasInformadas + " " + letraMaiscula + " ";
 
                 if (palavraEscolhida.Contains(letraMaiscula))
                 {
@@ -106,8 +254,6 @@ namespace JogoForca
                     Thread.Sleep(1500);
                     Console.Clear();
                 }
-
-               
 
                 if (palavraCodificada.IndexOf("_") == -1)
                 {
@@ -136,62 +282,11 @@ namespace JogoForca
                 }
             }
         }
-// Aqui está todas palavras do tema fruta e onde é selecionado e codificado as palavras
-        static void Fruta()
+
+        // Aqui está todas palavras e onde é selecionado e codificado as palavras
+        static void CodificarDasPalavras(string[] listaDePalavras)
         {
             Console.Clear();
-
-            //Aqui ficara as palavras que serão escolhidas para o jogo da forca
-            string[] listaDePalavras =
-            {
-                "ABACATE",
-                "ABACAXI",
-                "ACEROLA",
-                "AMEIXA",
-                "ARAÇA",
-                "AÇAI",
-                "BACABA",
-                "BURITI",
-                "CAJU",
-                "CAJA",
-                "CARAMBOLA",
-                "COCO",
-                "CUPUAÇU",
-                "FIGO",
-                "GOIABA",
-                "GRAVIOLA",
-                "GUABIROBA",
-                "GUARANA",
-                "JABUTICABA",
-                "JACA",
-                "JATOBA",
-                "JENIPAPO",
-                "KIWI",
-                "LARANJA",
-                "LIMAO",
-                "MAMAO",
-                "MANGA",
-                "MANGABA",
-                "MARACUJA",
-                "MELANCIA",
-                "MURICI",
-                "NECTARINA",
-                "PERA",
-                "PESSEGO",
-                "PEQUI",
-                "PINHA",
-                "PITANGA",
-                "PITOMBA",
-                "ROMA",
-                "SAPOTI",
-                "SIRIGUELA",
-                "TANGERINA",
-                "TUCUMA",
-                "UMBU",
-                "UXI",
-                "UVA",
-                "TOMATE"
-            };
 
             //Aqui será sorteadado as palavras
             Random paralvraAleatoria = new Random();
@@ -205,134 +300,8 @@ namespace JogoForca
             //Aqui vamos fazer as validações
             Validacao(palavraEscolhida, palavraCodificada);
         }
-// Aqui está todas palavras do tema Time e onde é selecionado e codificado as palavras
-        static void Time()
-        {
-            Console.Clear();
 
-            //Aqui ficara as palavras que serão escolhidas para o jogo da forca
-            string[] listaDePalavras =
-            {
-                "BARCELONA",
-                "LIVERPOOL",
-                "CHELSEA",
-                "BAYERN MUNICH",
-                "JUVENTUS",
-                "MILAN",
-                "BENFICA",
-                "SPORTING",
-                "PORTO",
-                "CELTIC",
-                "RANGERS",
-                "ARSENAL",
-                "TOTTENHAM",
-                "SEVILLA",
-                "VALENCIA",
-                "PSV",
-                "AJAX",
-                "FLAMENGO",
-                "CORINTHIANS",
-                "SANTOS",
-                "PALMEIRAS",
-                "GREMIO",
-                "INTERNACIONAL",
-                "CRUZEIRO",
-                "FLUMINENSE",
-                "BOTAFOGO",
-                "CHAPECOENSE",
-                "GOIAS",
-                "CEARA",
-                "FORTALEZA",
-                "SANTA CRUZ",
-                "SPORT",
-                "NAUTICO",
-                "ABC",
-                "PAYSANDU",
-                "REMO",
-                "JUVENTUDE",
-                "PSG",
-                "LAZIO",
-                "GUARANI",
-                "CRICIUMA",
-                "NACIONAL"
-            };
-
-            //Aqui será sorteadado as palavras
-            Random paralvraAleatoria = new Random();
-            int localização = paralvraAleatoria.Next(0, listaDePalavras.Length);
-            string palavraEscolhida = listaDePalavras[localização];
-
-            //Aqui iremos codificar as palavras
-            string codificador = "".PadLeft(palavraEscolhida.Length, '_');
-            string palavraCodificada = palavraEscolhida.Replace(palavraEscolhida, codificador);
-
-            //Aqui vamos fazer as validações
-            Validacao(palavraEscolhida, palavraCodificada);
-        }
-// Aqui está todas palavras do tema Animal e onde é selecionado e codificado as palavras
-        static void Animal()
-        {
-            Console.Clear();
-
-            //Aqui ficara as palavras que serão escolhidas para o jogo da forca
-            string[] listaDePalavras =
-            {
-                "ABELHA",
-                "ARANHA",
-                "AGUIA",
-                "BALEIA",
-                "CARCARA",
-                "CANGURU",
-                "CHITA",
-                "COALA",
-                "COBRA",
-                "CONDOR",
-                "CROCODILO",
-                "ELEFANTE",
-                "FALCAO",
-                "FORMIGA",
-                "FOCA",
-                "GAVIAO",
-                "GIRRAFA",
-                "GORILA",
-                "HIPOPOTAMO",
-                "JACARE",
-                "JAGUATIRICA",
-                "LEAO",
-                "LEOPARDO",
-                "LOBO",
-                "MACACO",
-                "MEDUSA",
-                "MORSA",
-                "ONÇA",
-                "ORCA",
-                "PANDA",
-                "PEIXE",
-                "PINGUIM",
-                "POLVO",
-                "RAPTOR",
-                "RINOCERONTE",
-                "SURICATE",
-                "TARTARUGA",
-                "TIGRE",
-                "TUBARÃO",
-                "URSO",
-                "ZEBRA"
-            };
-
-            //Aqui será sorteadado as palavras
-            Random paralvraAleatoria = new Random();
-            int localização = paralvraAleatoria.Next(0, listaDePalavras.Length);
-            string palavraEscolhida = listaDePalavras[localização];
-
-            //Aqui iremos codificar as palavras
-            string codificador = "".PadLeft(palavraEscolhida.Length, '_');
-            string palavraCodificada = palavraEscolhida.Replace(palavraEscolhida, codificador);
-
-            //Aqui vamos fazer as validações
-            Validacao(palavraEscolhida, palavraCodificada);
-        }
-//Aqui está o desenho da forca 
+        //Aqui está o desenho da forca
         static void Desenho(int vida)
         {
             if (vida == 6)
@@ -401,7 +370,8 @@ namespace JogoForca
                 Console.WriteLine("|___");
             }
         }
-//Aqui está a finalização do jogo, para saber se o user vai continuar jogando ou não
+
+        //Aqui está a finalização do jogo, para saber se o user vai continuar jogando ou não
         static void continuarJogando()
         {
             Console.Clear();
