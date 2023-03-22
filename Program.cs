@@ -1,5 +1,4 @@
-﻿using Internal;
-/*JOGO DA FORCA !!!!*/
+﻿/*JOGO DA FORCA !!!!*/
 using System;
 
 namespace JogoForca
@@ -74,9 +73,16 @@ namespace JogoForca
                 Console.Write("\nMe informe uma letra: ");
                 string letra = Console.ReadLine();
                 letraMaiscula = letra.ToUpper();
-                letrasInformadas = letrasInformadas + " " + letraMaiscula + " ";
-
-                
+               
+                //Verificação se a letra já foi informada
+                 if (letrasInformadas.Contains(letraMaiscula))
+                {
+                    Console.WriteLine("\n----------ATENÇÃO!! A letra já foi informada---------------");
+                    Thread.Sleep(1500);
+                    Console.Clear();
+                    continue;            
+                }
+                 letrasInformadas = letrasInformadas + " " + letraMaiscula + " ";
 
                 if (palavraEscolhida.Contains(letraMaiscula))
                 {
@@ -100,6 +106,9 @@ namespace JogoForca
                     Thread.Sleep(1500);
                     Console.Clear();
                 }
+
+               
+
                 if (palavraCodificada.IndexOf("_") == -1)
                 {
                     Console.WriteLine("Parabéns você venceu");
