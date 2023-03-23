@@ -7,7 +7,7 @@ namespace JogoForca
     {
         static void Main(string[] args)
         {
-            MenuSelecao();
+            inicio();
         }
 
         static void inicio()
@@ -30,7 +30,7 @@ namespace JogoForca
             Console.ReadKey();
             MenuSelecao();
         }
-
+ 
         static void MenuSelecao()
         {
             Console.Clear();
@@ -201,8 +201,8 @@ namespace JogoForca
                     break;
             }
         }
-
         //Aqui está todo o jogo da forca, as validações para fazer o desenho da forca, contar as vidas e diminuir a vida
+     
         static void Validacao(string palavraEscolhida, string palavraCodificada)
         {
             int vida = 6;
@@ -282,8 +282,8 @@ namespace JogoForca
                 }
             }
         }
-
         // Aqui está todas palavras e onde é selecionado e codificado as palavras
+       
         static void CodificarDasPalavras(string[] listaDePalavras)
         {
             Console.Clear();
