@@ -18,7 +18,7 @@ namespace JogoForca
             Thread.Sleep(1000);
             Console.WriteLine("Vamos lá conhecer as regras: ");
             Thread.Sleep(1500);
-            Console.WriteLine("Todos os temas tem 5 vidas");
+            Console.WriteLine("Todos os temas tem 6 vidas");
             Thread.Sleep(1500);
             Console.WriteLine("Atualmente temos 3 temas");
             Thread.Sleep(1500);
