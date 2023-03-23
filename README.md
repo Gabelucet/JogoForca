@@ -5,9 +5,9 @@
 
   <h2 align="center">Instruções</h2>
   <p align ="center">Para jogar, basta compilar e executar o arquivo Program.cs em um ambiente de desenvolvimento .NET. O jogo começa com uma mensagem de boas-vindas e uma breve explicação das regras. Em seguida, o usuário deve escolher um dos três temas disponíveis digitando o número correspondente:<br>
-1 - Frutas<br>
-2 - Animais<br>
-3 - Times de futebol<br>
+1 - Frutas;<br>
+2 - Animais;<br>
+3 - Times de futebol;<br>
 Ao escolher um tema, o programa seleciona uma palavra aleatória da lista correspondente e exibe o número de letras da palavra ocultas por "_". O usuário deve tentar adivinhar as letras da palavra digitando uma letra por vez. Se a letra estiver presente na palavra, ela é exibida na posição correspondente. Se não, o usuário perde uma vida e uma parte do desenho da forca é desenhada. O usuário tem um número limitado de vidas para acertar a palavra inteira.</p>
  
 <div align="center">
